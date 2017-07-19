@@ -1,0 +1,50 @@
+
+#container {
+    width: 970px;
+    height: 700px;
+    border: 1px solid black;  
+    padding-bottom: 20px; 
+}
+
+.places {
+    height: 200px;
+    width: 200px;
+    display: inline-block;
+    border: 1px solid black;
+    text-align: center;
+    margin: 18px;
+}
+
+#score_display h3 {
+    display: inline-block;
+}
+
+#score_display h4 {
+    display: inline-block;
+    border: 1px solid black;
+    padding: 5px;
+    margin-left: 5px;
+
+}
+
+#score_display {
+    margin-left: 20px;
+}
+
+p, textarea {
+    margin-left: 20px;
+}
+
+#results {
+    width: 95%;
+    height: 200px;
+    border: 1px solid black;
+    margin-left: 20px;
+    overflow: scroll;
+    padding-bottom: 20px;
+}
+
+#clear {
+    margin: 20px;
+    padding: 20px;
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'ninja/styles.css' %}" media="screen" title="no title"  charset="utf-8">
+</head>
+<body>
+    <div id="container">
+        <div id="score_display">
+            <h3>Your gold:   <h3>
+            <h4 id="score_int">{{ request.session.score }}</h4>
+        </div>
+        <div class="places">
+            <h1>Farm</h1>
+            <h3>(Earns 10-20 golds)</h3>
+            <form action="/process_money" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="building" value="farm" />
+                <input type="submit" value="Find Gold!"/>
+            </form>
+        </div>
+        <div class="places">
+            <h1>Cave</h1>
+            <h3>(Earns 5-10 golds)</h3>
+            <form action="/process_money" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="building" value="cave" />
+                <input type="submit" value="Find Gold!"/>
+            </form>
+        </div>
+        <div class="places">
+            <h1>House</h1>
+            <h3>(Earns 2-5 golds)</h3>
+            <form action="/process_money" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="building" value="house" />
+                <input type="submit" value="Find Gold!"/>
+            </form>
+        </div>
+        <div class="places">
+            <h1>Casino</h1>
+            <h3>(Earns/takes 0-50 golds)</h3>
+            <form action="/process_money" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="building" value="casino" />
+                <input type="submit" value="Find Gold!"/>
+            </form>
+        </div>
+        <p>Activities</p>
+        <div id='results'>
+            {% for message in request.session.messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        </div>
+        <form action="/clear_session">
+            {% csrf_token %}
+            <input type="submit" value="Start Over" id="clear"/>
+        </form>
+    </div>
+</body>
+</html>
